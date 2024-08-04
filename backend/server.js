@@ -1,7 +1,7 @@
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
-const mongo = require('mongoose');
+const mongoose = require('mongoose');
 
 // env
 require('dotenv').config();
@@ -14,6 +14,17 @@ app.use(cors());
 
 // server
 const server = http.createServer(app);
-server.listen(PORT, () => {
-  console.log(`Server is listening on ${PORT}`);
-});
+
+// mongoose
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    // mongoose 연결후 서버 실행
+    server.listen(PORT, () => {
+      console.log(`Server is listening on ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log('database connection failed: server not started');
+    console.error(error);
+  });
