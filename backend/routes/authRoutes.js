@@ -2,6 +2,7 @@ const express = require('express');
 const authControllers = require('../controllers/auth/authControllers');
 const Joi = require('joi');
 const validator = require('express-joi-validation').createValidator({});
+const auth = require('../middlewares/auth');
 
 const registerSchema = Joi.object({
   username: Joi.string().min(3).max(12).required(),
@@ -28,7 +29,8 @@ router.post(
   authControllers.controllers.postLogin
 );
 
-module.exports = router;
+router.get('/test', auth, (req, res) => {
+  res.send('request passed');
+});
 
-// Joi는 객체 스키마 validation을 해주는 기능을 제공
-// react-hook-form같은 라이브러리
+module.exports = router;
