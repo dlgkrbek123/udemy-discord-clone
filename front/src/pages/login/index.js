@@ -1,5 +1,7 @@
+import AuthBox from '../../components/AuthBox';
+
 const LoginPage = () => {
-  return <div>Login</div>;
+  return <AuthBox>Login</AuthBox>;
 };
 
 export default LoginPage;

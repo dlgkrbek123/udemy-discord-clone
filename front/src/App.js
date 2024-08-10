@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Redirect,
-} from 'react-rout er-dom';
+  Navigate,
+} from 'react-router-dom';
 import './App.css';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
@@ -13,20 +13,12 @@ import DashboardPage from './pages/dashboard';
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/register">
-          <RegisterPage />
-        </Route>
-        <Route exact path="/dashboard">
-          <DashboardPage />
-        </Route>
-        <Route path="/">
-          <Redirect to="/dashboard" />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/login" element={<LoginPage />} />
+        <Route exact path="/register" element={<RegisterPage />} />
+        <Route exact path="/dashboard" element={<DashboardPage />} />
+        <Route path="/" element={<Navigate to="/dashboard" />} />
+      </Routes>
     </Router>
   );
 }

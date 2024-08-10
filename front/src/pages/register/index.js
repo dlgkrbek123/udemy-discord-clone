@@ -1,5 +1,7 @@
+import AuthBox from '../../components/AuthBox';
+
 const RegisterPage = () => {
-  return <div>Register</div>;
+  return <AuthBox>Register</AuthBox>;
 };
 
 export default RegisterPage;
