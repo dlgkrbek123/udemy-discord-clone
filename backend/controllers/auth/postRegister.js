@@ -1,5 +1,6 @@
 const User = require('../../models/user');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const postRegister = async (req, res) => {
   try {
@@ -22,7 +23,14 @@ const postRegister = async (req, res) => {
     });
 
     // jwt 토큰을 생성
-    const token = 'JWT Token';
+    const token = jwt.sign(
+      {
+        userId: user._id,
+        mail: user.mail,
+      },
+      process.env.TOKEN_KEY,
+      { expiresIn: '24h' }
+    );
 
     return res.status(201).json({
       userDetails: {
