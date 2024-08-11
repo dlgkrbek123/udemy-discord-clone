@@ -12,7 +12,7 @@ apiClient.interceptors.request.use(
   (config) => {
     const userDetails = localStorage.getItem('user');
 
-    if (userDetails) {
+    if (userDetails && userDetails !== 'undefined') {
       const token = JSON.parse(userDetails).token;
 
       config.headers.Authorization = `Bearer ${token}`;
