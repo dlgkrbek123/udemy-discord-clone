@@ -1,7 +1,12 @@
 import { styled } from '@mui/system';
+import DropdownMenu from './DropdownMenu';
 
 const AppBar = () => {
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <DropdownMenu />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled('div')({

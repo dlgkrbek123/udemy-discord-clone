@@ -27,9 +27,7 @@ const login = (userDetails, navigate) => {
         response?.exception?.response?.data ?? 'error occured'
       );
     } else {
-      const { uesrDetails } = response.data;
-      localStorage.setItem('user', JSON.stringify(uesrDetails));
-
+      localStorage.setItem('user', JSON.stringify(response.data.userDetails));
       dispatch(setUserDetails(userDetails));
       navigate('/dashboard');
     }
@@ -45,9 +43,7 @@ const register = (userDetails, navigate) => {
         response?.exception?.response?.data ?? 'error occured'
       );
     } else {
-      const { uesrDetails } = response.data;
-      localStorage.setItem('user', JSON.stringify(uesrDetails));
-
+      localStorage.setItem('user', JSON.stringify(response.data.userDetails));
       dispatch(setUserDetails(userDetails));
       navigate('/dashboard');
     }

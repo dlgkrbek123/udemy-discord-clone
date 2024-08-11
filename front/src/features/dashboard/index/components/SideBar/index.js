@@ -1,7 +1,12 @@
 import { styled } from '@mui/system';
+import MainPageButton from './MainPageButton';
 
 const SideBar = () => {
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <MainPageButton />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled('div')({

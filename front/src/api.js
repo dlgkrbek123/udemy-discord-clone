@@ -1,7 +1,6 @@
 import axios from 'axios';
 import store from './store/store';
 import { setUserDetails } from './store/actions/authActions';
-import { getNativeSelectUtilityClasses } from '@mui/material';
 
 const apiClient = axios.create({
   baseURL: 'http://localhost:5002/api',
@@ -52,7 +51,7 @@ const checkResponseCode = (exception) => {
 
   if (responseCode && [401, 403].includes(responseCode)) {
     localStorage.clear();
-    store.dispatch(setUserDetails(getNativeSelectUtilityClasses));
+    store.dispatch(setUserDetails(null));
     window.location.pathname = '/login';
   }
 };
