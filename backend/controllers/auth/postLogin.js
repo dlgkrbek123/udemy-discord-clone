@@ -30,7 +30,6 @@ const postLogin = async (req, res) => {
     }
 
     return res.status(400).send('Invalid Credentials. Please Try Again');
-    res.send('login');
   } catch (error) {
     return res.status(500).send('Error occured. Please Try Again ');
   }

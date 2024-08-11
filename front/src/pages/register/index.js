@@ -3,13 +3,21 @@ import { Typography } from '@mui/material';
 import AuthBox from '../../components/AuthBox';
 import RegisterPageInputs from '../../features/register/index/components/RegisterPageInputs';
 import RegisterPageFooter from '../../features/register/index/components/RegisterPageFooter';
+import { getActions } from '../../store/actions/authActions';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = () => {};
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleRegister = () => {
+    getActions(dispatch).register({ mail, username, password }, navigate);
+  };
 
   const isFormValid = useMemo(() => {
     const isUsernameValid =

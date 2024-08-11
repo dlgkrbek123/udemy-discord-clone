@@ -9,17 +9,21 @@ import './App.css';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
 import DashboardPage from './pages/dashboard';
+import AlertNotification from './components/AlertNotification';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/login" element={<LoginPage />} />
-        <Route exact path="/register" element={<RegisterPage />} />
-        <Route exact path="/dashboard" element={<DashboardPage />} />
-        <Route path="/" element={<Navigate to="/dashboard" />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/register" element={<RegisterPage />} />
+          <Route exact path="/dashboard" element={<DashboardPage />} />
+          <Route path="/" element={<Navigate to="/dashboard" />} />
+        </Routes>
+      </Router>
+      <AlertNotification />
+    </>
   );
 }
 
