@@ -13,7 +13,7 @@ const LoginPage = () => {
       mail
     );
     const isPasswordValid =
-      password.length > 6 && password.length < 12 && /^\S+$/.test([password]);
+      password.length > 5 && password.length < 13 && /^\S+$/.test([password]);
 
     return isEmailValid && isPasswordValid;
   }, [mail, password]);
